@@ -14,8 +14,12 @@ public class HashController {
 
     private static final Logger logger = LogManager.getLogger(HashController.class);
 
+    private static HashService hashService;
+
     @Autowired
-    private HashService hashService;
+    public HashController(HashService hashService) {
+    this.hashService = hashService;
+    }
 
     @GetMapping
     public String generateHash() {
